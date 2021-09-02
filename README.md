@@ -42,3 +42,93 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Analysis
+
+```
+App
+
+|__ Header
+|__ SearchBox
+|__ Body
+|__ Footer
+
+Header
+|__ props: n/a
+|__ state: list of header item / active
+|__ render: Header item
+
+HeaderItem
+|__ props: name, active
+|__ state: n/a
+|__ render:
+
+SearchBox:
+|__ props: onChange, onBlur, value, error
+|__ state: na
+|__ render
+
+Footer
+|__ props: n/a
+|__ state: list of item
+|__ render: list of FooterItem + copyright
+
+FooterItem
+|__ props: name, item
+|__ state: n/a
+|__ render: Item
+
+BodyLayout: 1 type (other)
+
+Homepage:
+|__ props: n/a
+|__ state: film
+|__ render: FilmList, List of SideBar
+
+FilmList:
+|__ props
+|__ state
+|__ render: (HeaderFilmList + List of FilmCard + )
+
+HeaderFilmList
+|__ props: name, list filter ([{name: "Tat ca film", active: true}])
+|__ state
+|__ render
+
+FilmCard
+|__ props: images, score, start, name, category, slug
+|__ state
+|__ render
+
+Sidebar
+|__ props: nameheader, list film
+|__ state:
+|__ render
+```
+
+## Structure app
+
+```
+src
+|__ api
+|   |__ axiosClient
+|   |__ ...
+|__ constant
+|__ assets
+|__ components
+|   |__ Header: index.js, Header.scss
+|   |__ HeaderItem: index.jsx, HeaderItem.scss
+|   |__ Footer: index.js, Footer.scss
+|   |__ FooterItem: index.jsx, FooterItem.scss
+|   |__ FilmCard: index.jsx, FilmCard.scss
+|__ layout
+|__ pages
+|   |   |__ HomePage
+|   |   |__ TypePage
+|   |   |__ SearchPage
+|   |   |__ DetailPage
+|   |__ routes.js
+```
+
+linear-gradient(180deg,#081b27,rgba(8,27,39,.8))
+linear-gradient(to right bottom, rgba('#7ed56f',0.8), rgba('#28b485',0.8)),
