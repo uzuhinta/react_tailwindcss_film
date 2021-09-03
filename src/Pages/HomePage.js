@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FilmImages from 'constant/FilmImages';
 import Images from 'constant/Images';
+import { Link } from 'react-router-dom';
 
 const films = [
   {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
+    name: 'Bí Mật Nơi Góc Tối - Secrets in the Lattice',
+    category: 'Phim tình cảm',
+    score: 8.1,
+    star: 4,
+    image: FilmImages.IMAGE_1,
+  },
+  {
+    name: 'Tảo Hắc Phong Bạo - Crime Crackdown (2021)',
     category: 'Phim hành động',
+    score: 8.0,
+    star: 4,
+    image: FilmImages.IMAGE_1,
+  },
+  {
+    name: 'Nữ Nhi Nhà Họ Kiều - The Bond',
+    category: 'Phim tình cảm',
+    score: 8.5,
+    star: 4,
+    image: FilmImages.IMAGE_1,
+  },
+  {
+    name: 'Chuyện Đời Bác Sĩ (phần 2) - Hospital Playlist 2',
+    category: 'Phim tình cảm',
+    score: 9.1,
+    star: 4,
+    image: FilmImages.IMAGE_1,
+  },
+  {
+    name: 'Ngọc Lâu Xuân (Bạch Lộc & Kim Thần)',
+    category: 'Phim cổ trang',
     score: 8.1,
     star: 4,
     image: FilmImages.IMAGE_1,
@@ -82,35 +111,7 @@ const films = [
     image: FilmImages.IMAGE_1,
   },
   {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
-    category: 'Phim hành động',
-    score: 8.1,
-    star: 4,
-    image: FilmImages.IMAGE_1,
-  },
-  {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
-    category: 'Phim hành động',
-    score: 8.1,
-    star: 4,
-    image: FilmImages.IMAGE_1,
-  },
-  {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
-    category: 'Phim hành động',
-    score: 8.1,
-    star: 4,
-    image: FilmImages.IMAGE_1,
-  },
-  {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
-    category: 'Phim hành động',
-    score: 8.1,
-    star: 4,
-    image: FilmImages.IMAGE_1,
-  },
-  {
-    name: 'Người Lái Đò: Truyền Thuyết Nam Dương',
+    name: 'Người Lái Đò: Truyền Thuyết Nam Dương Phim cổ trangPhim cổ trangPhim cổ trangPhim cổ trangPhim cổ trangPhim cổ trangPhim cổ trangPhim cổ trang',
     category: 'Phim hành động',
     score: 8.1,
     star: 4,
@@ -125,6 +126,10 @@ const buttons = [
 ];
 
 function TypePage(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={`bg-body-bg`}>
       <main className={`container mx-auto flex gap-x-2`}>
@@ -158,8 +163,11 @@ function TypePage(props) {
                   className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 text-common-whiteff mt-4 mx-3.5`}
                 >
                   {films.map((film) => (
-                    <a href="#" className={`group duration-300 mx-auto`}>
-                      <div className={`relative mb-6`}>
+                    <div href="#" className={`group duration-300 mx-auto`}>
+                      <Link
+                        to={'/detail/test'}
+                        className={`block relative mb-6`}
+                      >
                         <span
                           className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-common-yellowf1 px-3 py-2 rounded-full text-sm`}
                         >
@@ -170,29 +178,32 @@ function TypePage(props) {
                           src={film.image}
                           alt={film.name}
                         />
-                      </div>
-                      <div>
+                      </Link>
+                      <div className={`flex flex-col`}>
                         <img
-                          className={`h-5 mb-4 mx-auto sm:mx-0`}
+                          className={`h-5 max-w-max mb-4 mx-auto sm:mx-0`}
                           src={Images[`STAR_${film.star}`]}
                           alt={`${film.star}`}
                         />
-                        <h2
-                          className={`font-bold text-xl group-hover:underline duration-300 mb-2 text-center sm:text-left`}
+                        <Link
+                          to={'/detail/test'}
+                          className={`font-bold text-xl mb-2 block hover:underline duration-300 text-center sm:text-left`}
                         >
                           {film.name}
-                        </h2>
-                        <span
+                        </Link>
+                        <Link
+                          to="/category/fasfa"
                           className={`text-sm text-common-gray89 underline block text-center sm:text-left`}
                         >
                           <img
                             src={Images.TAG}
                             className={`inline-block h-4 mr-2`}
+                            alt=""
                           />
                           {film.category}
-                        </span>
+                        </Link>
                       </div>
-                    </a>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -213,11 +224,12 @@ function TypePage(props) {
                 >
                   {films.map((film) => (
                     <div className={`SmallCardItem`}>
-                      <a
+                      <Link
+                        to={'/detail/test'}
                         href="#"
                         className={`flex items-center justify-between gap-4 mt-8 mx-2 group duration-300`}
                       >
-                        <div className={`relative`}>
+                        <div className={`relative w-3/12`}>
                           <div
                             className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-2 py-1 rounded-full bg-common-yellowf1 text-sm`}
                           >
@@ -229,7 +241,7 @@ function TypePage(props) {
                             alt="img"
                           />
                         </div>
-                        <div className="mr-12 lg:mr-1">
+                        <div className="mr-12 lg:mr-1 w-9/12">
                           <h4 className={`group-hover:underline duration-300`}>
                             {film.name}
                           </h4>
@@ -241,7 +253,7 @@ function TypePage(props) {
                             />
                           </div>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>

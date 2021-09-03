@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FilmImages from 'constant/FilmImages';
 import Images from 'constant/Images';
+import { Link } from 'react-router-dom';
 
 const films = [
   {
@@ -125,6 +126,11 @@ const buttons = [
 ];
 
 function HomePage(props) {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <div className={`bg-body-bg`}>
       <main className={`container mx-auto`}>
@@ -158,7 +164,9 @@ function HomePage(props) {
                   className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 text-common-whiteff mt-4 mx-3.5`}
                 >
                   {films.map((film) => (
-                    <a href="#" className={`group duration-300 mx-auto`}>
+                    <Link
+                    to={'/detail/test'}
+                     href="#" className={`group duration-300 mx-auto`}>
                       <div className={`relative mb-6`}>
                         <span
                           className={`absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-common-yellowf1 px-3 py-2 rounded-full text-sm`}
@@ -192,7 +200,7 @@ function HomePage(props) {
                           {film.category}
                         </span>
                       </div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

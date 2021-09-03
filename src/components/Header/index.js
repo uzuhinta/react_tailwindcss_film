@@ -2,18 +2,21 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Images from 'constant/Images';
 import useWindowSize from 'hooks/useWindowSize';
+import { Link, NavLink } from 'react-router-dom';
 
 const listNav = [
-  { name: 'Phim mới', isActive: true },
-  { name: 'Phim lẻ', isActive: false },
-  { name: 'Phim bộ', isActive: false },
+  { name: 'Phim mới', isActive: true, slug: 'phim-moi' },
+  { name: 'Phim lẻ', isActive: false, slug: 'phim-le' },
+  { name: 'Phim bộ', isActive: false, slug: 'phim-bo' },
   {
     name: 'Phim hoạt hình',
     isActive: false,
+    slug: 'phim-hoat-hinh',
   },
   {
     name: 'Phim chiếu rạp',
     isActive: false,
+    slug: 'phim-chieu-rap',
   },
 ];
 
@@ -38,20 +41,19 @@ function Header(props) {
   return (
     <div className="z-50 h-20 bg-header-bg flex items-center fixed w-full">
       <div className="container h-full mx-auto flex justify-between items-center">
-        <div className="h-full flex items-center">
+        <Link to="/" className="h-full flex items-center">
           <img src={Images.IMG_LOGO} alt="logo" />
-        </div>
+        </Link>
         <nav className="h-full items-center hidden lg:flex">
           {listNav.map((item) => (
-            <div
-              className={`h-full flex items-center ml-11 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300  ${
-                item.isActive
-                  ? 'text-common-whiteff border-b-4 border-common-yellowf1'
-                  : ''
-              }`}
+            <NavLink
+              exact
+              to={`${item.slug === 'phim-moi' ? '/' : `/type/${item.slug}`}`}
+              className={`h-full flex items-center ml-11 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300`}
+              activeClassName={`text-common-whiteff border-b-4 border-common-yellowf1`}
             >
               {item.name}
-            </div>
+            </NavLink>
           ))}
         </nav>
         <div
@@ -75,16 +77,15 @@ function Header(props) {
         } `}
       >
         {listNav.map((item) => (
-          <div
+          <NavLink
+          exact
+            to={`${item.slug === 'phim-moi' ? '/' : `/type/${item.slug}`}`}
             onClick={() => handleNav(false)}
-            className={`flex items-center mx-11 py-4 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300  ${
-              item.isActive
-                ? 'text-common-whiteff border-b-2 border-common-yellowf1'
-                : 'border-common-gray3b border-b-2'
-            }`}
+            className={`flex items-center mx-11 py-4 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300`}
+            activeClassName={`text-common-whiteff border-b-4 border-common-yellowf1`}
           >
             {item.name}
-          </div>
+          </NavLink>
         ))}
       </div>
     </div>
