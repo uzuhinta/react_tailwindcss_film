@@ -3,12 +3,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      inset: {
+        125: '125%',
+      },
       fontSize: {
         bullet: '5px',
       },
       boxShadow: {
         'detail-img': '0 -2px hsl(0deg 0% 100% / 20%)',
         'admin-header': '0px 10px 30px 0px rgb(82 63 105 / 5%)',
+        'drop-down': 'rgba(0, 0, 0, 0.35) 0px 5px 15px',
       },
       backgroundImage: (theme) => ({
         'footer-texture':
@@ -76,6 +80,8 @@ module.exports = {
     extend: {
       width: ['responsive', 'hover', 'focus'],
       display: ['responsive', 'hover', 'focus'],
+      scale: ['active', 'group-hover'],
+      // transitionDuration: ['hover', 'focus',],
     },
   },
   plugins: [],

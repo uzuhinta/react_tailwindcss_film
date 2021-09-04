@@ -29,7 +29,7 @@ function AsideMenuItem(props) {
       )}
       {title && (
         <p
-          className={`group-hover:text-admin-bs-white  duration-300 flex-1 ${
+          className={`group-hover:text-admin-bs-white   flex-1 ${
             isFull ? '' : 'invisible'
           }`}
         >

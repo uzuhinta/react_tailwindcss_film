@@ -27,7 +27,7 @@ function AsideMenuWithSub(props) {
         )}
         {title && isFull && (
           <p
-            className={`group-hover:text-admin-bs-white duration-300 flex-1 ${
+            className={`group-hover:text-admin-bs-white delay-300 flex-1 ${
               isActive ? 'text-admin-bs-white' : ''
             }`}
           >
@@ -52,6 +52,16 @@ function AsideMenuWithSub(props) {
     </div>
   );
 }
+
+AsideMenuWithSub.propTypes = {
+  isFull: PropTypes.bool,
+  to: PropTypes.string,
+  title: PropTypes.string,
+  icon: PropTypes.string,
+  hasArrow: PropTypes.bool,
+  hasBullet: PropTypes.bool,
+  isActive: PropTypes.bool,
+};
 
 AsideMenuWithSub.propTypes = {
   isFull: false,
