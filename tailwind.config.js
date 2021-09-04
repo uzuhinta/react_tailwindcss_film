@@ -3,9 +3,12 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontSize: {
+        bullet: '5px',
+      },
       boxShadow: {
-        'detail-img':
-          '0 -2px hsl(0deg 0% 100% / 20%)',
+        'detail-img': '0 -2px hsl(0deg 0% 100% / 20%)',
+        'admin-header': '0px 10px 30px 0px rgb(82 63 105 / 5%)',
       },
       backgroundImage: (theme) => ({
         'footer-texture':
@@ -30,6 +33,31 @@ module.exports = {
           gray74: '#74a8cf',
           gray9c: '#9cabb6',
         },
+        admin: {
+          'bs-bg': '#EFF2F5',
+          'bs-blue': '#009ef6',
+          'bs-indigo': '#6610f2',
+          'bs-purple': '#6f42c1',
+          'bs-pink': '#d63384',
+          'bs-red': '#dc3545',
+          'bs-orange': '#fd7e14',
+          'bs-yellow': '#ffc107',
+          'bs-green': '#198754',
+          'bs-teal': '#20c997',
+          'bs-cyan': '#0dcaf0',
+          'bs-gray': '#7E8299',
+          'bs-gray-dark': '#3F4254',
+          'bs-white': '#ffffff',
+          'bs-light': '#F5F8FA',
+          'bs-primary': '#009EF7',
+          'bs-secondary': '#E4E6EF',
+          'bs-success': '#50CD89',
+          'bs-info': '#7239EA',
+          'bs-warning': '#FFC700',
+          'bs-danger': '#F1416C',
+          'bs-dark': '#181C32',
+          'bs-darker': '#1a1a27',
+        },
       },
       fontFamily: {
         sans: ['Nunito', 'sans-serif'],
@@ -45,7 +73,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      width: ['responsive', 'hover', 'focus'],
+      display: ['responsive', 'hover', 'focus'],
+    },
   },
   plugins: [],
 };
