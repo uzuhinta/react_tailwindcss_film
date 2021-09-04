@@ -45,7 +45,7 @@ function AsideMenuWithSub(props) {
         )}
       </div>
       {isActive && (
-        <div className={`pl-3 ${isActive ? 'bg-admin-bs-darker' : ''}`}>
+        <div className={`pl-2.5 ${isActive ? 'bg-admin-bs-darker' : ''}`}>
           {props.children}
         </div>
       )}

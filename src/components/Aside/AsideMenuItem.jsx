@@ -13,7 +13,7 @@ function AsideMenuItem(props) {
     >
       {icon && (
         <i
-          className={`group-hover:text-admin-bs-white pr-4 ${icon} ${
+          className={`group-hover:text-admin-bs-white duration-300 pr-4 ${icon} ${
             isActive ? 'text-admin-bs-white' : ''
           } text-xl`}
         >
@@ -22,14 +22,14 @@ function AsideMenuItem(props) {
       )}
       {hasBullet && (
         <i
-          className={`group-hover:text-admin-bs-white text-bullet fas fa-circle pr-3 ${
+          className={`group-hover:text-admin-bs-white  duration-300 text-bullet fas fa-circle pr-3 ${
             isActive ? 'text-admin-bs-white' : ''
           }`}
         ></i>
       )}
       {title && (
         <p
-          className={`group-hover:text-admin-bs-white flex-1 ${
+          className={`group-hover:text-admin-bs-white  duration-300 flex-1 ${
             isFull ? '' : 'invisible'
           }`}
         >
