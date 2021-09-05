@@ -74,6 +74,9 @@ module.exports = {
         xl: '48px',
         sidebar: '578px',
       },
+      minHeight:{
+        "main": "100px"
+      }
     },
   },
   variants: {

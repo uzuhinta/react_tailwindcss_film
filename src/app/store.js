@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import asideReducer from 'components/Admin/Aside/asideSlide';
+
+const rootReducer = {
+  aside: asideReducer,
+};
 
 export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+  reducer: rootReducer,
 });

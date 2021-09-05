@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 function AsideMenuItem(props) {
-  const { isFull, to, title, icon, hasArrow, hasBullet, isActive } = props;
+  const [isActive, setIsActive] = useState(false);
+  const { isFull, to, title, icon, hasArrow, hasBullet } = props;
+
   return (
     <Link
+      onClick={() => setIsActive(!isActive)}
       to={to}
       className={`text-admin-bs-gray flex items-center pl-7 py-2.5  group ${
         isActive ? 'bg-admin-bs-darker' : ''

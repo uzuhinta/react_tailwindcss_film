@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function AsideMenuWithSub(props) {
-  const { isFull, to, title, icon, hasArrow, hasBullet, isActive } = props;
+  const [isActive, setIsActive] = useState(false);
+  const { isFull, to, title, icon, hasArrow, hasBullet } = props;
 
+  
   return (
     <div>
       <div
+        onClick={() => setIsActive(!isActive)}
         className={`group text-admin-bs-gray cursor-pointer flex items-center pl-7 py-1 ${
           isActive ? 'bg-admin-bs-darker' : ''
         }`}
@@ -44,7 +47,7 @@ function AsideMenuWithSub(props) {
           </p>
         )}
       </div>
-      {isActive && (
+      {isActive && isFull && (
         <div className={`pl-2.5 ${isActive ? 'bg-admin-bs-darker' : ''}`}>
           {props.children}
         </div>

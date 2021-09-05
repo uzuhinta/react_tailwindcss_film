@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function HeaderMenuWithSub(props) {
-  const { to, title, icon, img, hasArrow, hasBullet, isActive, menuPlacement } =
-    props;
+  const [isActive, setIsActive] = useState(false);
+  const { to, title, icon, img, hasArrow, hasBullet, menuPlacement } = props;
 
   return (
-    <div className={`relative`}>
+    <div
+      onMouseOver={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+      className={`relative`}
+    >
       <div
         className={`px-3 py-2 rounded-md bg-opacity-5 duration-300 cursor-pointer text-sm text-admin-bs-gray font-bold ${
           !img &&
@@ -39,7 +43,7 @@ function HeaderMenuWithSub(props) {
             className={`h-11 w-11 group cursor-pointer rounded overflow-hidden`}
           >
             <img
-              src={`https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/2/a/3/b/2a3b04b96552562debe6140cf9ea36b5.jpg`}
+              src={img}
               alt="avatar"
               className={`rounded-md duration-300 transform group-hover:scale-125 `}
             ></img>
