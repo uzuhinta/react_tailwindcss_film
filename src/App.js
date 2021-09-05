@@ -2,12 +2,12 @@ import Footer from 'components/Footer';
 import Header from 'components/Header';
 import SearchBox from 'components/SearchBox';
 import NotFound from 'components/NotFound';
-import TypePage from 'Pages/TypePage';
-import HomePage from 'Pages/HomePage';
+import TypePage from 'pages/TypePage';
+import HomePage from 'pages/HomePage';
 import React, { Suspense } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MasterLayout from 'layouts/MasterLayout';
-import DetailPage from 'Pages/DetailPage';
+import DetailPage from 'pages/DetailPage';
 import Routes from 'routes/Routes';
 
 function App() {

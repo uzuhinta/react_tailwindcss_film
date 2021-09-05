@@ -4,13 +4,11 @@ import PropTypes from 'prop-types';
 function AsideMenuWithSub(props) {
   const [isActive, setIsActive] = useState(false);
   const { isFull, to, title, icon, hasArrow, hasBullet } = props;
-
-  
   return (
     <div>
       <div
         onClick={() => setIsActive(!isActive)}
-        className={`group text-admin-bs-gray cursor-pointer flex items-center pl-7 py-1 ${
+        className={`group text-admin-bs-gray cursor-pointer flex items-center pl-7 py-2.5 rounded-bl-xl ${
           isActive ? 'bg-admin-bs-darker' : ''
         }`}
       >
@@ -47,17 +45,12 @@ function AsideMenuWithSub(props) {
           </p>
         )}
       </div>
-      {isActive && isFull && (
-        <div className={`pl-2.5 ${isActive ? 'bg-admin-bs-darker' : ''}`}>
-          {props.children}
-        </div>
-      )}
+      {isActive && isFull && <div className={`pl-2.5`}>{props.children}</div>}
     </div>
   );
 }
 
 AsideMenuWithSub.propTypes = {
-  isFull: PropTypes.bool,
   to: PropTypes.string,
   title: PropTypes.string,
   icon: PropTypes.string,
@@ -67,7 +60,6 @@ AsideMenuWithSub.propTypes = {
 };
 
 AsideMenuWithSub.propTypes = {
-  isFull: false,
   to: '',
   title: '',
   icon: '',

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import AdminLayout from 'layouts/AdminLayout';
+import Actor from 'pages/admin/Actors';
 
 function PrivateRoutes(props) {
   useEffect(() => {
@@ -9,9 +10,9 @@ function PrivateRoutes(props) {
   }, []);
   return (
     <Switch>
-      <Route>
-        <AdminLayout />
-      </Route>
+      <AdminLayout>
+        <Route path="/actor" component={Actor} />
+      </AdminLayout>
     </Switch>
   );
 }

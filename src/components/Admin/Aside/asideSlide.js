@@ -1,7 +1,9 @@
+import LocalStorage from 'constant/Local';
+
 const { createSlice } = require('@reduxjs/toolkit');
 // id, isActive
 const initialState = {
-  isFull: false,
+  isFull: localStorage.getItem(LocalStorage.TOGGLE_ASIDE) === 'true',
 };
 
 const aside = createSlice({
@@ -9,7 +11,7 @@ const aside = createSlice({
   initialState,
   reducers: {
     toggleAside: (state, action) => {
-      console.log(action);
+      // console.log(action);
       state.isFull = action.payload;
     },
   },

@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AdminImages from 'constant/AdminImages';
 import AsideMenuItem from './AsideMenuItem';
 import AsideMenuWithSub from './AsideMenuWithSub';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toggleAside } from './asideSlide';
 
 function Aside(props) {
-  let [isClickMenu, setIsClickMenu] = useState(true);
-  let [isHoverSidebar, setIsHoverSidebar] = useState(true);
-  let isFull = isClickMenu || isHoverSidebar;
+  const isFull = useSelector((state) => state.aside.isFull);
+
+  let [isClickMenu, setIsClickMenu] = useState(isFull);
+  let [isHoverSidebar, setIsHoverSidebar] = useState(isFull);
   const dispatch = useDispatch();
+  useEffect(() => {
+    console.log('in side bar ' + isFull);
+  }, []);
 
   const handleMouse = (isOver) => {
     setIsHoverSidebar(isOver);
@@ -62,8 +66,8 @@ function Aside(props) {
       />
       <AsideMenuItem
         isFull={isFull}
-        to="/"
-        title="Dashboard"
+        to="/actor"
+        title="Actor"
         icon="fas fa-gamepad"
       />
       {/* Aside Menu Item */}
@@ -79,32 +83,22 @@ function Aside(props) {
       {/* Aside menu with sub */}
       <AsideMenuWithSub
         isFull={isFull}
-        to="/"
-        title="Dashboard"
+        title="Actor"
         icon="fas fa-gamepad"
         hasArrow
         isActive
       >
-        <AsideMenuWithSub
-          isFull={isFull}
-          to="/"
-          title="Dashboard"
-          icon="fas fa-gamepad"
-          hasArrow
-          isActive
-        >
-          <AsideMenuItem
-            isFull={isFull}
-            to="/"
-            title="Dashboard"
-            // icon="fas fa-tachometer-alt"
-            hasBullet
-          />
-        </AsideMenuWithSub>
         <AsideMenuItem
           isFull={isFull}
-          to="/"
-          title="Dashboard"
+          to="/actor"
+          title="Summary"
+          // icon="fas fa-tachometer-alt"
+          hasBullet
+        />
+        <AsideMenuItem
+          isFull={isFull}
+          to="/actor/add"
+          title="Add"
           // icon="fas fa-tachometer-alt"
           hasBullet
         />
@@ -140,7 +134,6 @@ function Aside(props) {
   );
 }
 
-Aside.propTypes = {
-};
+Aside.propTypes = {};
 
 export default Aside;

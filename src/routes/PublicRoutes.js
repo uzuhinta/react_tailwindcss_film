@@ -4,10 +4,10 @@ import { Route, Switch } from 'react-router';
 import MasterLayout from 'layouts/MasterLayout';
 
 const NotFound = lazy(() => import("components/NotFound"))
-const HomePage = lazy(() => import('Pages/HomePage'));
-const TypePage = lazy(() => import('Pages/TypePage'));
-const DetailPage = lazy(() => import('Pages/DetailPage'));
-const LoginPage = lazy(() => import('Pages/LoginPage'));
+const HomePage = lazy(() => import('pages/HomePage'));
+const TypePage = lazy(() => import('pages/TypePage'));
+const DetailPage = lazy(() => import('pages/DetailPage'));
+const LoginPage = lazy(() => import('pages/LoginPage'));
 
 function PublicRoutes(props) {
   return (

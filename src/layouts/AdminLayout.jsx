@@ -8,13 +8,13 @@ import MainWrapper from 'components/Admin/MainWrapper/MainWrapper';
 import { useSelector } from 'react-redux';
 
 function AdminLayout(props) {
-  const isFull = useSelector(state => state.aside.isFull);
+  const isFull = useSelector((state) => state.aside.isFull);
 
   return (
     <div className={`bg-admin-bs-bg`}>
-      <Aside/>
-      <Header/>
-      <MainWrapper>fafdsf</MainWrapper>
+      <Aside />
+      <Header />
+      <MainWrapper>{props.children}</MainWrapper>
     </div>
   );
 }
