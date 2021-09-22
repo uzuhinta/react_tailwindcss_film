@@ -13,11 +13,13 @@ function AsideMenuWithSub(props) {
         }`}
       >
         {icon && (
-          <i
-            className={`group-hover:text-admin-bs-white text-base duration-300 pr-4 ${icon} ${
-              isActive ? 'text-admin-bs-white' : ''
-            }`}
-          ></i>
+          <div className={`w-5 mr-4 flex justify-center`}>
+            <i
+              className={`group-hover:text-admin-bs-white text-base duration-300  ${icon} ${
+                isActive ? 'text-admin-bs-white' : ''
+              }`}
+            ></i>
+          </div>
         )}
         {hasBullet && (
           <i
