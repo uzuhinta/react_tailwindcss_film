@@ -1,19 +1,37 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Switch, Route } from 'react-router-dom';
-import AdminLayout from 'layouts/AdminLayout';
-import Actor from 'pages/admin/Actors';
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 
-function PrivateRoutes(props) {
-  useEffect(() => {
-    document.title = 'Admin Dashboard';
-  }, []);
+// function PrivateRoutes(props) {
+//   useEffect(() => {
+//     document.title = 'Admin Dashboard';
+// eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
+//   return (
+//     <Switch>
+//       <AdminLayout>
+//         <Route path="/admin/actor" component={Actor} />
+//       </AdminLayout>
+//     </Switch>
+//   );
+// }0
+function PrivateRoutes({ children, ...rest }) {
+  let auth = true;
+  console.log(132132132);
   return (
-    <Switch>
-      <AdminLayout>
-        <Route path="/actor" component={Actor} />
-      </AdminLayout>
-    </Switch>
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+            }}
+          />
+        )
+      }
+    />
   );
 }
 

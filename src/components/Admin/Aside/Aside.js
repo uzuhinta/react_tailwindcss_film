@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import AdminImages from 'constant/AdminImages';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import AsideMenuItem from './AsideMenuItem';
 import AsideMenuWithSub from './AsideMenuWithSub';
-import { useDispatch, useSelector } from 'react-redux';
 import { toggleAside } from './asideSlide';
 
 function Aside(props) {
@@ -14,6 +13,7 @@ function Aside(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     console.log('in side bar ' + isFull);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleMouse = (isOver) => {
@@ -60,7 +60,7 @@ function Aside(props) {
       {/* Aside Menu Item */}
       <AsideMenuItem
         isFull={isFull}
-        to="/"
+        to="/admin/dashboard"
         title="Dashboard"
         icon="fas fa-tachometer-alt"
       />
@@ -73,9 +73,9 @@ function Aside(props) {
       {/* Aside Menu Item */}
       {/* Devide  */}
       <div
-        className={`pt-2.5 mb-1 pl-2.5 text-admin-bs-gray uppercase tracking-wider text-sm`}
+        className={`pt-2.5 mb-1 pl-2.5 text-admin-bs-gray uppercase tracking-wider text-xs`}
       >
-        <span className={`duration-200 ${isFull ? '' : 'invisible'}`}>
+        <span className={`${isFull ? '' : 'invisible'}`}>
           Crafted
         </span>
       </div>
@@ -84,20 +84,20 @@ function Aside(props) {
       <AsideMenuWithSub
         isFull={isFull}
         title="Actor"
-        icon="fas fa-gamepad"
+        icon="fas fa-id-badge"
         hasArrow
         isActive
       >
         <AsideMenuItem
           isFull={isFull}
-          to="/actor"
+          to="/admin/actor"
           title="Summary"
           // icon="fas fa-tachometer-alt"
           hasBullet
         />
         <AsideMenuItem
           isFull={isFull}
-          to="/actor/add"
+          to="/admin/actor/add"
           title="Add"
           // icon="fas fa-tachometer-alt"
           hasBullet

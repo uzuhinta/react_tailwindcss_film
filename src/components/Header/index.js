@@ -1,7 +1,5 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import Images from 'constant/Images';
-import useWindowSize from 'hooks/useWindowSize';
+import React, { useLayoutEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const listNav = [
@@ -36,6 +34,7 @@ function Header(props) {
     window.addEventListener('resize', updateNav);
     updateNav();
     return () => window.removeEventListener('resize', updateNav);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -45,8 +44,9 @@ function Header(props) {
           <img src={Images.IMG_LOGO} alt="logo" />
         </Link>
         <nav className="h-full items-center hidden lg:flex">
-          {listNav.map((item) => (
+          {listNav.map((item, index) => (
             <NavLink
+              key={index}
               exact
               to={`${item.slug === 'phim-moi' ? '/' : `/type/${item.slug}`}`}
               className={`h-full flex items-center ml-11 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300`}
@@ -76,9 +76,10 @@ function Header(props) {
           isShow ? '' : 'translate-x-full'
         } `}
       >
-        {listNav.map((item) => (
+        {listNav.map((item, index) => (
           <NavLink
-          exact
+            key={index}
+            exact
             to={`${item.slug === 'phim-moi' ? '/' : `/type/${item.slug}`}`}
             onClick={() => handleNav(false)}
             className={`flex items-center mx-11 py-4 text-lg font-semibold text-common-gray89 cursor-pointer hover:text-common-whiteff duration-300`}

@@ -128,6 +128,7 @@ const buttons = [
 function TypePage(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -135,7 +136,7 @@ function TypePage(props) {
       <main className={`container mx-auto flex gap-x-2`}>
         <div className={`flex flex-col w-full lg:w-9/12`}>
           {[1, 2].map((i) => (
-            <div className={` pb-10 `}>
+            <div className={` pb-10 `} key={i}>
               <div className={`Header`}>
                 <div
                   className={`flex items-center, justify-between mb-6 flex-col lg:flex-row`}
@@ -146,8 +147,9 @@ function TypePage(props) {
                   <div
                     className={`GroupButton mx-auto mt-6 mb-8 lg:mt-0 lg:mb-0 lg:mx-0`}
                   >
-                    {buttons.map((button) => (
+                    {buttons.map((button, index) => (
                       <button
+                        key={index}
                         className={`px-4 py-3  rounded-full ml-3 mb-3 ${
                           button.isActive
                             ? 'bg-common-whiteff text-common-gray0c'
@@ -162,8 +164,12 @@ function TypePage(props) {
                 <div
                   className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 text-common-whiteff mt-4 mx-3.5`}
                 >
-                  {films.map((film) => (
-                    <div href="#" className={`group duration-300 mx-auto`}>
+                  {films.map((film, index) => (
+                    <div
+                      href="#"
+                      className={`group duration-300 mx-auto`}
+                      key={index}
+                    >
                       <Link
                         to={'/detail/test'}
                         className={`block relative mb-6`}
@@ -212,7 +218,7 @@ function TypePage(props) {
         </div>
         <div className={`flex flex-col lg:w-3/12 hidden lg:block`}>
           {[1, 2, 3].map((i) => (
-            <div className={`pb-10`}>
+            <div className={`pb-10`} key={i}>
               <div className={`SideBarBlock text-common-whiteff mb-7`}>
                 <h3
                   className={`text-common-yellowf1 font-semibold text-2xl uppercase mb-3`}
@@ -222,8 +228,8 @@ function TypePage(props) {
                 <div
                   className={`h-sidebar flex flex-col overflow-y-auto overflow-hidden`}
                 >
-                  {films.map((film) => (
-                    <div className={`SmallCardItem`}>
+                  {films.map((film, index) => (
+                    <div className={`SmallCardItem`} key={index}>
                       <Link
                         to={'/detail/test'}
                         href="#"

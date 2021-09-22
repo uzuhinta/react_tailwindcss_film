@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import HeaderMenuItem from './HeaderMenuItem';
 import HeaderMenuWithSub from './HeaderMenuWithSub';
-import { useSelector } from 'react-redux';
 
 const HeaderItem1 = [
   {
@@ -202,17 +201,17 @@ function Header(props) {
           <HeaderMenuItem icon="fab fa-facebook-messenger" />
           <HeaderMenuWithSub
             img="https://photo-resize-zmp3.zadn.vn/w240_r1x1_jpeg/cover/2/a/3/b/2a3b04b96552562debe6140cf9ea36b5.jpg"
-            menuPlacement="top-100 right-0  -translate-x-full "
+            menuPlacement="top-100 left-full -translate-x-full"
           >
             <HeaderMenuWithSub
               title="Pages"
               hasArrow
-              menuPlacement="top-0 right-full  -translate-x-full"
+              menuPlacement="top-0 left-0 -translate-x-full"
             >
               <HeaderMenuWithSub
                 title="Pages"
                 hasArrow
-                menuPlacement="top-0 right-full  -translate-x-full"
+                menuPlacement="top-0 left-0 -translate-x-full"
               >
                 <HeaderMenuItem title="Dashboard" />
                 <HeaderMenuItem title="Dashboard" />
@@ -228,7 +227,7 @@ function Header(props) {
               title="Pages"
               hasArrow
               isActive
-              menuPlacement="top-0 right-full  translate-x-x-full"
+              menuPlacement="top-0 left-0 -translate-x-full"
             >
               <HeaderMenuItem title="Dashboard" />
               <HeaderMenuItem title="Dashboard" />
@@ -238,7 +237,7 @@ function Header(props) {
             <HeaderMenuWithSub
               title="Pages"
               hasArrow
-              menuPlacement="top-0 right-full  -translate-x-x-full"
+              menuPlacement="top-0 left-0 -translate-x-full"
             >
               <HeaderMenuItem title="Dashboard" />
               <HeaderMenuItem title="Dashboard" />

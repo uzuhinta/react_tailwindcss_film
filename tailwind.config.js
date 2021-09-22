@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      width: {
+        login: '600px',
+      },
       inset: {
         125: '125%',
       },
@@ -74,9 +77,10 @@ module.exports = {
         xl: '48px',
         sidebar: '578px',
       },
-      minHeight:{
-        "main": "100px"
-      }
+      minHeight: {
+        main: '100px',
+        content: 'calc(100vh - 140px)',
+      },
     },
   },
   variants: {

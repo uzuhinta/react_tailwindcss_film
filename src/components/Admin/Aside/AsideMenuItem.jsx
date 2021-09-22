@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { useRouteMatch } from 'react-router-dom';
-import { checkIsActive } from 'utils/routeHelper';
+import React from 'react';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
+import { checkIsActive } from 'utils/routeHelper';
 
 function AsideMenuItem(props) {
   const { pathname } = useLocation();
   const { isFull, to, title, icon, hasArrow, hasBullet } = props;
   const isActive = checkIsActive(pathname, to);
-  console.log({isActive});
+  console.log({ isActive });
   return (
     <Link
       to={to}
@@ -19,9 +18,9 @@ function AsideMenuItem(props) {
     >
       {icon && (
         <i
-          className={`group-hover:text-admin-bs-white duration-300 pr-4 ${icon} ${
+          className={`group-hover:text-admin-bs-white text-base duration-300 pr-4 ${icon} ${
             isActive ? 'text-admin-bs-white' : ''
-          } text-xl`}
+          }`}
         >
           {' '}
         </i>

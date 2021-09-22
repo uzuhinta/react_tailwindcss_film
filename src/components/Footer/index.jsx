@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const footerCol1 = ['Liên hệ', 'Giới thiệu', 'Bản quyền'];
 const footerCol2 = ['Phim bộ', 'Phim lẻ', 'Phim chiếu rạp'];
@@ -17,8 +16,9 @@ function Footer(props) {
           className={`grid grid-cols-1 lg:grid-cols-3 pb-10 border-b border-common-gray37 w-11/12 mx-auto`}
         >
           <div className={`pt-5`}>
-            {footerCol1.map((name) => (
+            {footerCol1.map((name, index) => (
               <a
+                key={index}
                 href="#"
                 className={`block text-center lg:text-left text-common-gray74 py-2 hover:text-common-yellowf1 duration-200`}
               >
@@ -27,8 +27,9 @@ function Footer(props) {
             ))}
           </div>
           <div className={`pt-5`}>
-            {footerCol2.map((name) => (
+            {footerCol2.map((name, index) => (
               <a
+                key={index}
                 href="#"
                 className={`block text-center lg:text-left text-common-gray74 py-2 hover:text-common-yellowf1 duration-200`}
               >
@@ -37,8 +38,9 @@ function Footer(props) {
             ))}
           </div>
           <div className={`pt-5`}>
-            {footerCol3.map((item) => (
+            {footerCol3.map((item, index) => (
               <a
+                key={index}
                 href="#"
                 className={`block text-center lg:text-left text-common-gray74 py-2 duration-200 hover:text-common-whiteff`}
               >
@@ -55,7 +57,6 @@ function Footer(props) {
         >
           Copyright © 2021 Fullphim.net. All Rights reserved.
         </p>
-
       </div>
     </div>
   );

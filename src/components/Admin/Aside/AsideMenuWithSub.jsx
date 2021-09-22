@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 function AsideMenuWithSub(props) {
   const [isActive, setIsActive] = useState(false);
@@ -14,9 +14,9 @@ function AsideMenuWithSub(props) {
       >
         {icon && (
           <i
-            className={`group-hover:text-admin-bs-white duration-300 pr-4 ${icon} ${
+            className={`group-hover:text-admin-bs-white text-base duration-300 pr-4 ${icon} ${
               isActive ? 'text-admin-bs-white' : ''
-            } text-xl`}
+            }`}
           ></i>
         )}
         {hasBullet && (

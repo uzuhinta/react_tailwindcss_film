@@ -8,7 +8,7 @@ function AddEditPage(props) {
   return (
     <div>
       AddEditPage
-      <button onClick={() => console.log(match)}>show</button>
+      <button onClick={() => console.log(match.path.split("/")[1])}>show</button>
     </div>
   );
 }

@@ -1,8 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import Footer from 'components/Footer'
 import Header from 'components/Header'
 import SearchBox from 'components/SearchBox'
-import Footer from 'components/Footer'
+import React from 'react'
 
 function MasterLayout(props) {
   return (

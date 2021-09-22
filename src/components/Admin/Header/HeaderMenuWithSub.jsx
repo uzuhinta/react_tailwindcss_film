@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
 function HeaderMenuWithSub(props) {
   const [isActive, setIsActive] = useState(false);

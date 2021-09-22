@@ -37,6 +37,7 @@ const film = {
 function DetailPage(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div className={`bg-body-bg`}>

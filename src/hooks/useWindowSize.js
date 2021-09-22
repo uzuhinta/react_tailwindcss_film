@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 export default function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -10,6 +10,7 @@ export default function useWindowSize() {
     window.addEventListener('resize', updateSize);
     updateSize();
     return () => window.removeEventListener('resize', updateSize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return size;
 }
