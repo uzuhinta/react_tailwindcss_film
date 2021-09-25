@@ -8,7 +8,8 @@ function AsideMenuItem(props) {
   const { pathname } = useLocation();
   const { isFull, to, title, icon, hasArrow, hasBullet } = props;
   const isActive = checkIsActive(pathname, to);
-  console.log({ isActive });
+  // console.log({ isActive });
+  console.log(pathname, to);
   return (
     <Link
       to={to}

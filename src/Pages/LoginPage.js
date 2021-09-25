@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AdminImages from 'constant/AdminImages';
 import Images from 'constant/Images';
+import { Redirect } from 'react-router-dom';
 
 function LoginPage(props) {
+  let isAuth = true;
+  if (isAuth) {
+    <Redirect to="/admin/dashboard" />;
+  }
   return (
     <div className={`h-screen flex w-screen`}>
       <div className={`shadow-xl bg-admin-bs-gray-dark w-4/12 hidden relative`}>
@@ -97,7 +102,9 @@ function LoginPage(props) {
               OR
             </div>
           </div>
-          <div className={`form-field relative group focus-within:text-admin-bs-blue w-full`}>
+          <div
+            className={`form-field relative group focus-within:text-admin-bs-blue w-full`}
+          >
             <input
               className={`w-full border border-common-gray9c border-opacity-50 rounded-md px-2 py-2.5 outline-none hover:border-opacity-100 focus:border-opacity-100`}
               id="email"

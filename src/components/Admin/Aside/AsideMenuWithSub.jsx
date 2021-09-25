@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function AsideMenuWithSub(props) {
   const [isActive, setIsActive] = useState(false);
   const { isFull, to, title, icon, hasArrow, hasBullet } = props;
   return (
     <div>
-      <div
+      <Link
+        to={to}
         onClick={() => setIsActive(!isActive)}
         className={`group text-admin-bs-gray cursor-pointer flex items-center pl-7 py-2.5 rounded-bl-xl ${
           isActive ? 'bg-admin-bs-darker' : ''
@@ -46,7 +48,7 @@ function AsideMenuWithSub(props) {
             <i className={`fas fa-angle-right pr-4`}></i>
           </p>
         )}
-      </div>
+      </Link>
       {isActive && isFull && <div className={`pl-2.5`}>{props.children}</div>}
     </div>
   );

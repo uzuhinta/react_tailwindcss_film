@@ -84,6 +84,7 @@ function Aside(props) {
       <AsideMenuWithSub
         isFull={isFull}
         title="Actor"
+        to="/admin/actor"
         icon="fas fa-id-badge"
         hasArrow
         isActive

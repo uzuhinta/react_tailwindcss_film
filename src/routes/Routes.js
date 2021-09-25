@@ -40,6 +40,7 @@ function Routes(props) {
         <AdminLayout>
           <Route path="/admin/actor" component={Actor} />
           <Route path="/admin/dashboard" component={Dashboard} />
+          <Route component={NotFound} />
         </AdminLayout>
       </PrivateRoutes>
       <Route component={NotFound} />
